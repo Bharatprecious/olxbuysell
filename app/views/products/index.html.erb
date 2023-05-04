@@ -1,2 +1,28 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h3> <%= link_to "mypage",user_path(current_user) %></h3>
+<h1>products</h1>
+<>
+<table>
+  <thead>
+    <tr>
+      <th>photo</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>location</th>
+      <th>contact seller</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= image_tag product.image,style: "width: 200px; display: block"%></td>
+        <td><%= product.title%></td>
+        <td><%= product.price%></td>
+        <td><%= product.description%></td>
+        <td><%= product.location%></td>
+        <td> messege </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
