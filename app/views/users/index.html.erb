@@ -1,6 +1,7 @@
-<h3> <%= link_to "mypage",users_path %></h3>
-<h1>products</h1>
-<>
+<h1> <%= current_user.name%> </h1>
+<h3>post product </h3>
+<%=link_to "Add Product",new_product_path%>
+
 <table>
   <thead>
     <tr>
@@ -8,23 +9,21 @@
       <th>Title</th>
       <th>Price</th>
       <th>Description</th>
-      <th>location</th>
-      <th>contact seller</th>
+      <th>Location</th>
+      <th>Show</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
-      <% unless product.user_id == current_user.id %>
+      <% @products.each do |product| %>
       <tr>
         <td><%= image_tag product.image,style: "width: 200px; display: block"%></td>
         <td><%= product.title%></td>
         <td><%= product.price%></td>
         <td><%= product.description%></td>
         <td><%= product.location%></td>
-        <td><%= link_to "Messege", new_product_room_path(product)%></td>
+        <td><%= link_to "show",product_path(product)%></td>
       </tr>
-      <%end%>
     <% end %>
   </tbody>
 </table>

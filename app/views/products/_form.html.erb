@@ -1,4 +1,4 @@
-<%= form_with model: [ @user, @user.products.build ] do |form| %>
+<%= form_with model: product do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title%>
@@ -28,6 +28,8 @@
     <%= form.label :image %><br>
     <%= form.file_field :image %>
   </p>
+  
+  <%= form.text_field :user_id, value: current_user.id,type: "hidden" %>
 
   <p>
     <%= form.submit %>
