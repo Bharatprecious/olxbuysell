@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   enum :role, [:admin,:user], default: :user
   has_many :products
+  broadcasts_to ->(room) { :users}
 end

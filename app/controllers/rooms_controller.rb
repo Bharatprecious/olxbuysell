@@ -2,15 +2,14 @@ class RoomsController < ApplicationController
     before_action :set_room, only: %i[ show edit update destroy ]
 
       def index
-        @messages = Message.all
         @rooms = Room.where(user_id: current_user.id).or(Room.where(seconduser_id: current_user.id))
-    
       end
     
       # GET /rooms/1 or /rooms/1.json
       def show
         @room = Room.find(params[:id])
-
+        @messege = Messege.new
+        @messeges = Messege.where(room_id: @room.id)
       end
     
       # GET /rooms/new
@@ -20,7 +19,7 @@ class RoomsController < ApplicationController
         @chatroom = Room.find_by(user_id: current_user.id, product_id: @product.id)
         if @chatroom
            flash.now[:error] = "room  already exits"
-           redirect_to product_room_path(@product,@chatroom)
+           redirect_to user_room_path(current_user,@chatroom)
         end
       end
     
@@ -34,7 +33,7 @@ class RoomsController < ApplicationController
         @room = @product.rooms.create(room_params) 
         respond_to do |format|
           if @room.save
-            format.html { redirect_to product_room_path(@product,@room), notice: "Room was successfully created." }
+            format.html { redirect_to user_room_path(current_user,@room), notice: "Room was successfully created." }
             format.json { render :show, status: :created, location: @room }
           else
             format.html { render :new, status: :unprocessable_entity }
