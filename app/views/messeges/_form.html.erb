@@ -1,0 +1,12 @@
+<%= form_with model: messege do |form| %>
+  <p>
+    <%= form.text_field :content%>
+  </p>
+  <%= form.text_field :user_id, value: current_user.id,type: "hidden" %>
+
+  <%= form.text_field :room_id, value: room,type: "hidden" %>
+
+  <p>
+    <%= form.submit :"send messege"%>
+  </p>
+<% end %>

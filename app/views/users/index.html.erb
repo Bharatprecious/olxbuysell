@@ -1,0 +1,30 @@
+<h1> <%= current_user.name%> </h1>
+<%=link_to "My rooms",user_rooms_path(current_user)%>
+<h3>post product </h3>
+<%=link_to "Add Product",new_product_path%>
+
+<table>
+  <thead>
+    <tr>
+      <th>photo</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= image_tag product.image,style: "width: 200px; display: block"%></td>
+        <td><%= product.title%></td>
+        <td><%= product.price%></td>
+        <td><%= product.description%></td>
+        <td><%= product.location%></td>
+        <td><%= link_to "show",product_path(product)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

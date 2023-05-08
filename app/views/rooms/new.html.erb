@@ -1,0 +1,14 @@
+<h1>new room</h1>
+<%= form_with model: [@product, @product.rooms.build] do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name%>
+  </p>
+  <%= form.text_field :user_id, value: current_user.id,type: "hidden" %>
+
+  <%= form.text_field :seconduser_id, value: @product.user_id,type: "hidden" %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
