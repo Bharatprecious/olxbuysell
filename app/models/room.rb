@@ -1,5 +1,4 @@
 class Room < ApplicationRecord
     belongs_to :product
-    has_many :messege
-    broadcasts_to ->(room) { :rooms}
+    has_many :messege, dependent: :destroy
 end
