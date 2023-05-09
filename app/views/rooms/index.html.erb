@@ -1,7 +1,4 @@
-<h1>My Rooms<h1>
-<%= turbo_stream_from "rooms" %>
-<div id="rooms">
- <% @rooms.each do |room|%> 
-   <%= render room%>
-  <%end%>
-</div>
+<center><h1 style = 'background-color : orange'>My Rooms<h1></center>
+ <% @rooms.each do |room|%>
+   <%= render room%><br>
+  <% end %>

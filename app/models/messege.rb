@@ -1,4 +1,4 @@
 class Messege < ApplicationRecord
     belongs_to :room
-    broadcasts_to ->(room) { :messege_list}
+    after_create_commit { broadcast_append_to "messeges" }
 end

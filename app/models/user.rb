@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum :role, [:admin,:user], default: :user
-  has_many :products
-  broadcasts_to ->(room) { :users}
+  has_many :products, dependent: :destroy
 end

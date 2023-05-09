@@ -20,6 +20,6 @@ class MessegesController < ApplicationController
 
     private
     def messege_params
-        params.require(:messege).permit(:content,:user_id,:room_id)
+        params.require(:messege).permit(:content,:user_id,:name,:room_id)
     end
 end

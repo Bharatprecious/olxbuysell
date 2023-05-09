@@ -1,6 +1,5 @@
 <h3> <%= link_to "mypage",users_path %></h3>
 <h1>products</h1>
-<>
 <table>
   <thead>
     <tr>
@@ -18,7 +17,7 @@
       <% unless product.user_id == current_user.id %>
       <tr>
         <td><%= image_tag product.image,style: "width: 200px; display: block"%></td>
-        <td><%= product.title%></td>
+        <td><b><%= product.title%></b></td>
         <td><%= product.price%></td>
         <td><%= product.description%></td>
         <td><%= product.location%></td>

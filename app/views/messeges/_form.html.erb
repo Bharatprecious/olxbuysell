@@ -3,6 +3,8 @@
     <%= form.text_field :content%>
   </p>
   <%= form.text_field :user_id, value: current_user.id,type: "hidden" %>
+  
+  <%= form.text_field :name, value: current_user.name,type: "hidden" %>
 
   <%= form.text_field :room_id, value: room,type: "hidden" %>
 

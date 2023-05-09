@@ -1,7 +1,8 @@
+<div style = 'background-color : orange; display : flex; align_items:center;justify-content:space-between'>
 <h1> <%= current_user.name%> </h1>
-<%=link_to "My rooms",user_rooms_path(current_user)%>
-<h3>post product </h3>
-<%=link_to "Add Product",new_product_path%>
+<h3><%=link_to "My rooms",user_rooms_path(current_user)%> </h3>
+</div>
+<h3><%=link_to "Add Product",new_product_path%></h3>
 
 <table>
   <thead>
@@ -19,7 +20,7 @@
       <% @products.each do |product| %>
       <tr>
         <td><%= image_tag product.image,style: "width: 200px; display: block"%></td>
-        <td><%= product.title%></td>
+        <td> <b> <%= product.title%> </b></td>
         <td><%= product.price%></td>
         <td><%= product.description%></td>
         <td><%= product.location%></td>

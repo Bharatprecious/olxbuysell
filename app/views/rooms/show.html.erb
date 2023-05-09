@@ -1,9 +1,8 @@
-<h1><%=@room.name%></h1>
-
-<%= turbo_stream_from "messege_list" %>
-<div id="messege_list">
- <% @messeges.each do |messege|%>
-   <%= render messege%>
-  <%end%>
+<center><h1 style = 'background-color : orange'><%=@room.name%></h1></center>
+<div style = 'width : 500px; margin:auto'>
+<%= turbo_stream_from "messeges" %>
+<div id="messeges">
+   <%= render @messeges%>
 </div>
 <%= render "messeges/form",room: @room.id,messege: @messege%>
+</div>
