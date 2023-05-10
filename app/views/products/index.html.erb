@@ -1,5 +1,10 @@
-<h3> <%= link_to "mypage",users_path %></h3>
 <h1>products</h1>
+
+<%= form_tag products_path, :method => "get" do %>
+  <%= text_field_tag :search, params[:search]%>
+  <%= submit_tag("Search", :name => nil)%>
+<%end%>
+
 <table>
   <thead>
     <tr>
