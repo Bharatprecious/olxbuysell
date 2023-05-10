@@ -5,4 +5,8 @@
    <%= render @messeges%>
 </div>
 <%= render "messeges/form",room: @room.id,messege: @messege%>
+<%= link_to "destroy room",user_room_path(@room),data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }%>
 </div>
