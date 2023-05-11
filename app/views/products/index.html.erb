@@ -1,9 +1,14 @@
 <h1>products</h1>
 
-<%= form_tag products_path, :method => "get" do %>
-  <%= text_field_tag :search, params[:search]%>
-  <%= submit_tag("Search", :name => nil)%>
-<%end%>
+<%= form_tag products_path, method: :get do %>
+  <%= label_tag :search, "Search by category:" %>
+  <%= select_tag :search, options_for_select(["cars", "bikes", "Home", "Mobile Phones", "Kitchen Items","Kitchen others"], params[:search]) %>
+  <%= label_tag :price, "Max price:" %>
+  <%= select_tag :price, options_for_select(["5000", "10000", "20000", "50000", "100000","600000"], params[:price]) %>
+  <%= label_tag :location, "Location:" %>
+  <%= select_tag :location, options_for_select(["ujjain", "indore", "bhopal", "Kota"], params[:location]) %>
+  <%= submit_tag "Search" %>
+<% end %>
 
 <table>
   <thead>
